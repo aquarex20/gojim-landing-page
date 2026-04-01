@@ -72,6 +72,31 @@
             gap: var(--spacing-md);
             flex-wrap: wrap;
         }
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+        }
+        .lang-switch button {
+            appearance: none;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        .lang-switch button.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -88,6 +113,10 @@
                     <a href="index.html#download">Download</a>
                     <a href="index.html#contact" class="cta-button">Get Started</a>
                 </div>
+                <div class="lang-switch" aria-label="Language switcher">
+                    <button type="button" data-locale-button="en">EN</button>
+                    <button type="button" data-locale-button="fr">FR</button>
+                </div>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -100,8 +129,16 @@
     <main class="simple-page">
         <div class="container">
             <div class="simple-card">
-                <h1>Supprimer mon compte</h1>
-                <p>
+                <h1
+                    data-i18n="delete.title"
+                    data-i18n-en="Delete my account"
+                    data-i18n-fr="Supprimer mon compte"
+                >Supprimer mon compte</h1>
+                <p
+                    data-i18n="delete.intro"
+                    data-i18n-en="You can delete your account directly from the GoJim app."
+                    data-i18n-fr="Tu peux supprimer ton compte directement depuis l’application GoJim."
+                >
                     Tu peux supprimer ton compte directement depuis l’application GoJim.
                 </p>
 
@@ -109,38 +146,94 @@
                     <div class="step-item" role="listitem">
                         <div class="step-badge">1</div>
                         <div>
-                            <div class="feature-title">Ouvre ton profil</div>
-                            <div class="feature-description">Va dans l’onglet / page <strong>Profil</strong>.</div>
+                            <div
+                                class="feature-title"
+                                data-i18n="delete.step1.title"
+                                data-i18n-en="Open your profile"
+                                data-i18n-fr="Ouvre ton profil"
+                            >Ouvre ton profil</div>
+                            <div
+                                class="feature-description"
+                                data-i18n="delete.step1.desc:html"
+                                data-i18n-en="Go to the <strong>Profile</strong> tab / page."
+                                data-i18n-fr="Va dans l’onglet / page <strong>Profil</strong>."
+                            >Va dans l’onglet / page <strong>Profil</strong>.</div>
                         </div>
                     </div>
                     <div class="step-item" role="listitem">
                         <div class="step-badge">2</div>
                         <div>
-                            <div class="feature-title">Ouvre les paramètres</div>
-                            <div class="feature-description">Depuis ton profil, ouvre <strong>Paramètres</strong>.</div>
+                            <div
+                                class="feature-title"
+                                data-i18n="delete.step2.title"
+                                data-i18n-en="Open settings"
+                                data-i18n-fr="Ouvre les paramètres"
+                            >Ouvre les paramètres</div>
+                            <div
+                                class="feature-description"
+                                data-i18n="delete.step2.desc:html"
+                                data-i18n-en="From your profile, open <strong>Settings</strong>."
+                                data-i18n-fr="Depuis ton profil, ouvre <strong>Paramètres</strong>."
+                            >Depuis ton profil, ouvre <strong>Paramètres</strong>.</div>
                         </div>
                     </div>
                     <div class="step-item" role="listitem">
                         <div class="step-badge">3</div>
                         <div>
-                            <div class="feature-title">Supprime le compte</div>
-                            <div class="feature-description">Appuie sur <strong>Supprimer le compte</strong> et confirme.</div>
+                            <div
+                                class="feature-title"
+                                data-i18n="delete.step3.title"
+                                data-i18n-en="Delete the account"
+                                data-i18n-fr="Supprime le compte"
+                            >Supprime le compte</div>
+                            <div
+                                class="feature-description"
+                                data-i18n="delete.step3.desc:html"
+                                data-i18n-en="Tap <strong>Delete account</strong> and confirm."
+                                data-i18n-fr="Appuie sur <strong>Supprimer le compte</strong> et confirme."
+                            >Appuie sur <strong>Supprimer le compte</strong> et confirme.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="note">
+                <div
+                    class="note"
+                    data-i18n="delete.note"
+                    data-i18n-en="Deletion is permanent (your account and associated data will no longer be accessible)."
+                    data-i18n-fr="La suppression est définitive (ton compte et tes données associées ne seront plus accessibles)."
+                >
                     La suppression est définitive (ton compte et tes données associées ne seront plus accessibles).
                 </div>
 
+                <div
+                    class="note"
+                    style="margin-top: var(--spacing-md); border-left-color: var(--primary); background: rgba(99, 102, 241, 0.06);"
+                    data-i18n="delete.help:html"
+                    data-i18n-en="Need help? Email us at <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>."
+                    data-i18n-fr="Besoin d’aide ? Écris-nous à <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>."
+                >
+                    Besoin d’aide ? Écris-nous à <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a>.
+                </div>
+
                 <div class="page-actions">
-                    <a class="btn btn-primary" href="index.html">Retour à l’accueil</a>
-                    <a class="btn btn-secondary" href="index.html#contact">Besoin d’aide ?</a>
+                    <a
+                        class="btn btn-primary"
+                        href="index.html"
+                        data-i18n="delete.backHome"
+                        data-i18n-en="Back to home"
+                        data-i18n-fr="Retour à l’accueil"
+                    >Retour à l’accueil</a>
+                    <a class="btn btn-secondary" href="support.html"
+                        data-i18n="delete.support"
+                        data-i18n-en="Support"
+                        data-i18n-fr="Support"
+                    >Support</a>
                 </div>
             </div>
         </div>
     </main>
 
     <script src="script.js"></script>
+    <script src="i18n.js"></script>
 </body>
 </html>

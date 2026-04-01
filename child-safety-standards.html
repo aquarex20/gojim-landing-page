@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoJim — Child Safety Standards</title>
+    <meta name="description" content="GoJim standards against child sexual abuse material (CSAM) and child sexual exploitation and abuse (CSAE).">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .policy-page {
+            padding: calc(70px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+            background: var(--background-secondary);
+            min-height: 100vh;
+        }
+        .policy-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            box-shadow: var(--shadow-lg);
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        .policy-hero {
+            display: grid;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+        }
+        .policy-title {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            font-weight: var(--font-weight-extrabold);
+            letter-spacing: -0.02em;
+        }
+        .policy-subtitle {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 80ch;
+        }
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border);
+            background: #fff;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        .card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            background: #fff;
+            box-shadow: var(--shadow-md);
+        }
+        .card h2 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        .card p, .card ul {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .card ul {
+            margin-top: var(--spacing-sm);
+            padding-left: 1.25rem;
+            display: grid;
+            gap: 0.5rem;
+        }
+        .callout {
+            margin-top: var(--spacing-xl);
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            background: rgba(236, 72, 153, 0.06);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            color: var(--text-secondary);
+        }
+        .actions {
+            margin-top: var(--spacing-xl);
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        .policy-footer {
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            align-items: center;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+        }
+        .lang-switch button {
+            appearance: none;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        .lang-switch button.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        @media (max-width: 968px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .policy-title {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a class="logo" href="index.html" aria-label="GoJim Home">
+                    <span class="logo-icon">💪</span>
+                    <span class="logo-text">GoJim</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="index.html#download">Download</a>
+                    <a href="index.html#contact" class="cta-button">Get Started</a>
+                </div>
+                <div class="lang-switch" aria-label="Language switcher">
+                    <button type="button" data-locale-button="en">EN</button>
+                    <button type="button" data-locale-button="fr">FR</button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="policy-page">
+        <div class="container">
+            <article class="policy-card">
+                <header class="policy-hero">
+                    <div
+                        class="policy-title"
+                        data-i18n="safety.title"
+                        data-i18n-en="Child safety standards"
+                        data-i18n-fr="Normes liées à la sécurité (mineurs)"
+                    >Child safety standards</div>
+                    <div
+                        class="policy-subtitle"
+                        data-i18n="safety.subtitle"
+                        data-i18n-en="This page describes GoJim’s standards and enforcement approach against child sexual abuse material (CSAM) and child sexual exploitation and abuse (CSAE)."
+                        data-i18n-fr="Cette page décrit les normes de GoJim et notre approche de lutte contre le matériel d’abus sexuel sur mineurs (CSAM) et l’exploitation / abus sexuels sur mineurs (CSAE)."
+                    >
+                        This page describes GoJim’s standards and enforcement approach against child sexual abuse material (CSAM) and child sexual exploitation and abuse (CSAE).
+                    </div>
+
+                    <div class="badge-row">
+                        <span class="pill" data-i18n="safety.meta1" data-i18n-en="Last updated: April 1, 2026" data-i18n-fr="Dernière mise à jour : 1 avril 2026">Last updated: April 1, 2026</span>
+                        <span class="pill" data-i18n="safety.meta2:html" data-i18n-en="Contact: <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>" data-i18n-fr="Contact : <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>">Contact: <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a></span>
+                    </div>
+                </header>
+
+                <section class="grid">
+                    <div class="card">
+                        <h2 data-i18n="safety.zeroTitle" data-i18n-en="Zero tolerance" data-i18n-fr="Tolérance zéro">Zero tolerance</h2>
+                        <p
+                            data-i18n="safety.zeroBody"
+                            data-i18n-en="GoJim has zero tolerance for CSAM/CSAE. We prohibit any content, behavior, or attempt to exploit minors."
+                            data-i18n-fr="GoJim applique une tolérance zéro envers le CSAM/CSAE. Nous interdisons tout contenu, comportement ou tentative d’exploitation de mineurs."
+                        >
+                            GoJim has zero tolerance for CSAM/CSAE. We prohibit any content, behavior, or attempt to exploit minors.
+                        </p>
+                        <ul>
+                            <li data-i18n="safety.zero.li1" data-i18n-en="No sharing, requesting, or grooming-related behavior." data-i18n-fr="Aucun partage, sollicitation, ou comportement lié au grooming.">No sharing, requesting, or grooming-related behavior.</li>
+                            <li data-i18n="safety.zero.li2" data-i18n-en="No accounts used to target or contact minors for exploitation." data-i18n-fr="Aucun compte utilisé pour cibler ou contacter des mineurs à des fins d’exploitation.">No accounts used to target or contact minors for exploitation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h2 data-i18n="safety.enforcementTitle" data-i18n-en="Enforcement" data-i18n-fr="Application des règles">Enforcement</h2>
+                        <p
+                            data-i18n="safety.enforcementBody"
+                            data-i18n-en="When we become aware of violations, we take action which may include removing content, restricting features, and disabling accounts."
+                            data-i18n-fr="Lorsqu’une violation est portée à notre connaissance, nous pouvons prendre des mesures incluant la suppression de contenu, la restriction de fonctionnalités et la désactivation de comptes."
+                        >
+                            When we become aware of violations, we take action which may include removing content, restricting features, and disabling accounts.
+                        </p>
+                        <ul>
+                            <li data-i18n="safety.enforcement.li1" data-i18n-en="Account suspension/termination for severe or repeated violations." data-i18n-fr="Suspension / suppression de compte en cas de violations graves ou répétées.">Account suspension/termination for severe or repeated violations.</li>
+                            <li data-i18n="safety.enforcement.li2" data-i18n-en="Cooperation with lawful requests from authorities when applicable." data-i18n-fr="Coopération avec les autorités lorsque applicable et conforme à la loi.">Cooperation with lawful requests from authorities when applicable.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div class="callout">
+                    <div
+                        data-i18n="safety.report:html"
+                        data-i18n-en="<strong>Report / Contact:</strong> If you believe a user is engaging in harmful behavior involving minors, contact us at <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>."
+                        data-i18n-fr="<strong>Signaler / Contacter :</strong> Si tu penses qu’un utilisateur adopte un comportement dangereux impliquant des mineurs, contacte-nous à <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>."
+                    ><strong>Report / Contact:</strong> If you believe a user is engaging in harmful behavior involving minors, contact us at <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a>.</div>
+                </div>
+
+                <div class="actions">
+                    <a class="btn btn-primary" href="support.html" data-i18n="safety.support" data-i18n-en="Support" data-i18n-fr="Support">Support</a>
+                    <a class="btn btn-secondary" href="privacy-policy.html" data-i18n="safety.privacy" data-i18n-en="Privacy Policy" data-i18n-fr="Politique de confidentialité">Privacy Policy</a>
+                </div>
+
+                <footer class="policy-footer">
+                    <span data-i18n="safety.footerLeft" data-i18n-en="© 2026 Haroun Mili" data-i18n-fr="© 2026 Haroun Mili">© 2026 Haroun Mili</span>
+                    <span data-i18n="safety.footerRight" data-i18n-en="GoJim — Child safety standards" data-i18n-fr="GoJim — Normes de sécurité (mineurs)">GoJim — Child safety standards</span>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="i18n.js"></script>
+</body>
+</html>
+

@@ -141,6 +141,31 @@
                 font-size: 2.25rem;
             }
         }
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+        }
+        .lang-switch button {
+            appearance: none;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        .lang-switch button.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -157,6 +182,10 @@
                     <a href="index.html#download">Download</a>
                     <a href="index.html#contact" class="cta-button">Get Started</a>
                 </div>
+                <div class="lang-switch" aria-label="Language switcher">
+                    <button type="button" data-locale-button="en">EN</button>
+                    <button type="button" data-locale-button="fr">FR</button>
+                </div>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -170,25 +199,61 @@
         <div class="container">
             <div class="support-wrap">
                 <section class="support-hero">
-                    <div class="support-title">GoJim Support</div>
-                    <div class="support-subtitle">
+                    <div
+                        class="support-title"
+                        data-i18n="support.title"
+                        data-i18n-en="GoJim Support"
+                        data-i18n-fr="Support GoJim"
+                    >GoJim Support</div>
+                    <div
+                        class="support-subtitle"
+                        data-i18n="support.subtitle"
+                        data-i18n-en="Welcome to the GoJim support page. If you experience issues or have questions, we’re here to help."
+                        data-i18n-fr="Bienvenue sur la page support de GoJim. Si tu as un souci ou une question, on est là pour t’aider."
+                    >
                         Welcome to the GoJim support page. If you experience issues or have questions, we’re here to help.
                     </div>
                     <div style="margin-top: var(--spacing-lg); display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
-                        <a class="btn btn-primary" href="mailto:gymbrahapp@gmail.com">Email support</a>
-                        <a class="btn btn-secondary" href="privacy-policy.html">Privacy Policy</a>
+                        <a
+                            class="btn btn-primary"
+                            href="mailto:gymbrahapp@gmail.com"
+                            data-i18n="support.emailCta"
+                            data-i18n-en="Email support"
+                            data-i18n-fr="Contacter le support"
+                        >Email support</a>
+                        <a
+                            class="btn btn-secondary"
+                            href="privacy-policy.html"
+                            data-i18n="support.privacyCta"
+                            data-i18n-en="Privacy Policy"
+                            data-i18n-fr="Politique de confidentialité"
+                        >Privacy Policy</a>
                     </div>
                 </section>
 
                 <section class="support-grid">
                     <div class="card">
-                        <h2>Contact</h2>
-                        <div class="muted">Fastest way to reach us:</div>
+                        <h2
+                            data-i18n="support.contactTitle"
+                            data-i18n-en="Contact"
+                            data-i18n-fr="Contact"
+                        >Contact</h2>
+                        <div
+                            class="muted"
+                            data-i18n="support.fastest"
+                            data-i18n-en="Fastest way to reach us:"
+                            data-i18n-fr="Le moyen le plus rapide de nous joindre :"
+                        >Fastest way to reach us:</div>
                         <div class="contact-row">
                             <div class="contact-item">
                                 <div class="contact-icon">✉️</div>
                                 <div>
-                                    <div class="label">Email</div>
+                                    <div
+                                        class="label"
+                                        data-i18n="support.emailLabel"
+                                        data-i18n-en="Email"
+                                        data-i18n-fr="Email"
+                                    >Email</div>
                                     <div class="muted">
                                         <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a>
                                     </div>
@@ -198,30 +263,65 @@
                     </div>
 
                     <aside class="card">
-                        <h2>Quick links</h2>
-                        <div class="muted">Common requests:</div>
+                        <h2
+                            data-i18n="support.quickLinksTitle"
+                            data-i18n-en="Quick links"
+                            data-i18n-fr="Liens rapides"
+                        >Quick links</h2>
+                        <div
+                            class="muted"
+                            data-i18n="support.common"
+                            data-i18n-en="Common requests:"
+                            data-i18n-fr="Demandes fréquentes :"
+                        >Common requests:</div>
                         <div class="quick-links">
                             <a class="quick-link" href="privacy-policy.html">
-                                <span>Privacy Policy</span>
+                                <span
+                                    data-i18n="support.linkPrivacy"
+                                    data-i18n-en="Privacy Policy"
+                                    data-i18n-fr="Politique de confidentialité"
+                                >Privacy Policy</span>
                                 <span aria-hidden="true">→</span>
                             </a>
                             <a class="quick-link" href="delete-account.html">
-                                <span>Delete account</span>
+                                <span
+                                    data-i18n="support.linkDelete"
+                                    data-i18n-en="Delete account"
+                                    data-i18n-fr="Supprimer le compte"
+                                >Delete account</span>
+                                <span aria-hidden="true">→</span>
+                            </a>
+                            <a class="quick-link" href="child-safety-standards.html">
+                                <span
+                                    data-i18n="support.linkSafety"
+                                    data-i18n-en="Child safety standards"
+                                    data-i18n-fr="Normes de sécurité (mineurs)"
+                                >Child safety standards</span>
                                 <span aria-hidden="true">→</span>
                             </a>
                             <a class="quick-link" href="index.html#download">
-                                <span>Download</span>
+                                <span
+                                    data-i18n="support.linkDownload"
+                                    data-i18n-en="Download"
+                                    data-i18n-fr="Télécharger"
+                                >Download</span>
                                 <span aria-hidden="true">→</span>
                             </a>
                         </div>
                     </aside>
                 </section>
 
-                <div class="support-footer">© 2025 Haroun Mili</div>
+                <div
+                    class="support-footer"
+                    data-i18n="support.footer"
+                    data-i18n-en="© 2025 Haroun Mili"
+                    data-i18n-fr="© 2025 Haroun Mili"
+                >© 2025 Haroun Mili</div>
             </div>
         </div>
     </main>
 
     <script src="script.js"></script>
+    <script src="i18n.js"></script>
 </body>
 </html>

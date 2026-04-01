@@ -105,6 +105,31 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+        }
+        .lang-switch button {
+            appearance: none;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        .lang-switch button.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -121,6 +146,10 @@
                     <a href="index.html#download">Download</a>
                     <a href="index.html#contact" class="cta-button">Get Started</a>
                 </div>
+                <div class="lang-switch" aria-label="Language switcher">
+                    <button type="button" data-locale-button="en">EN</button>
+                    <button type="button" data-locale-button="fr">FR</button>
+                </div>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -135,78 +164,202 @@
             <article class="legal-card">
                 <header class="legal-header">
                     <div class="legal-title">
-                        Privacy Policy for <span class="brand-gradient">GoJim</span>
+                        <span
+                            data-i18n="privacy.title:html"
+                            data-i18n-en="Privacy Policy for <span class=&quot;brand-gradient&quot;>GoJim</span>"
+                            data-i18n-fr="Politique de confidentialité de <span class=&quot;brand-gradient&quot;>GoJim</span>"
+                        >Privacy Policy for <span class="brand-gradient">GoJim</span></span>
                     </div>
                     <div class="legal-meta">
-                        <span class="pill">Effective date: <strong>January 1, 2025</strong></span>
-                        <span class="pill">Contact: <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a></span>
+                        <span
+                            class="pill"
+                            data-i18n="privacy.effective:html"
+                            data-i18n-en="Effective date: <strong>January 1, 2025</strong>"
+                            data-i18n-fr="Date d’entrée en vigueur : <strong>1 janvier 2025</strong>"
+                        >Effective date: <strong>January 1, 2025</strong></span>
+                        <span class="pill">
+                            <span
+                                data-i18n="privacy.contactLabel"
+                                data-i18n-en="Contact:"
+                                data-i18n-fr="Contact :"
+                            >Contact:</span>
+                            <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a>
+                        </span>
                     </div>
                 </header>
 
                 <div class="legal-content">
-                    <p>
+                    <p
+                        data-i18n="privacy.intro"
+                        data-i18n-en="GoJim (“we”, “our”, or “us”) values your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our app."
+                        data-i18n-fr="GoJim (« nous », « notre ») respecte ta vie privée. Cette politique explique comment nous collectons, utilisons et protégeons tes informations lorsque tu utilises l’app."
+                    >
                         GoJim (“we”, “our”, or “us”) values your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our app.
                     </p>
 
-                    <h2>Information We Collect</h2>
+                    <h2
+                        data-i18n="privacy.collectTitle"
+                        data-i18n-en="Information We Collect"
+                        data-i18n-fr="Informations collectées"
+                    >Information We Collect</h2>
                     <ul>
-                        <li><strong>Account information:</strong> such as your username and email when you create an account.</li>
-                        <li><strong>Workout data:</strong> schedules, plans, and notifications you create inside the app.</li>
-                        <li><strong>Location data:</strong> only if you choose to share your location with friends in the app.</li>
+                        <li
+                            data-i18n="privacy.collect.account:html"
+                            data-i18n-en="<strong>Account information:</strong> such as your username and email when you create an account."
+                            data-i18n-fr="<strong>Informations de compte :</strong> comme ton nom d’utilisateur et ton email lors de la création du compte."
+                        ><strong>Account information:</strong> such as your username and email when you create an account.</li>
+                        <li
+                            data-i18n="privacy.collect.workout:html"
+                            data-i18n-en="<strong>Workout data:</strong> schedules, plans, and notifications you create inside the app."
+                            data-i18n-fr="<strong>Données d’entraînement :</strong> plannings, séances et notifications que tu crées dans l’app."
+                        ><strong>Workout data:</strong> schedules, plans, and notifications you create inside the app.</li>
+                        <li
+                            data-i18n="privacy.collect.location:html"
+                            data-i18n-en="<strong>Location data:</strong> only if you choose to share your location with friends in the app."
+                            data-i18n-fr="<strong>Données de localisation :</strong> uniquement si tu choisis de partager ta position avec tes amis dans l’app."
+                        ><strong>Location data:</strong> only if you choose to share your location with friends in the app.</li>
                     </ul>
 
-                    <h2>How We Use Your Information</h2>
-                    <p>We use your data to:</p>
+                    <h2
+                        data-i18n="privacy.useTitle"
+                        data-i18n-en="How We Use Your Information"
+                        data-i18n-fr="Utilisation des informations"
+                    >How We Use Your Information</h2>
+                    <p
+                        data-i18n="privacy.useIntro"
+                        data-i18n-en="We use your data to:"
+                        data-i18n-fr="Nous utilisons tes données pour :"
+                    >We use your data to:</p>
                     <ul>
-                        <li>Provide core features of the app (friend location, workout planning, notifications).</li>
-                        <li>Improve the user experience and app performance.</li>
-                        <li>Send you important updates and reminders.</li>
+                        <li
+                            data-i18n="privacy.use.core"
+                            data-i18n-en="Provide core features of the app (friend location, workout planning, notifications)."
+                            data-i18n-fr="Fournir les fonctionnalités principales (localisation d’amis, planification, notifications)."
+                        >Provide core features of the app (friend location, workout planning, notifications).</li>
+                        <li
+                            data-i18n="privacy.use.improve"
+                            data-i18n-en="Improve the user experience and app performance."
+                            data-i18n-fr="Améliorer l’expérience utilisateur et les performances."
+                        >Improve the user experience and app performance.</li>
+                        <li
+                            data-i18n="privacy.use.updates"
+                            data-i18n-en="Send you important updates and reminders."
+                            data-i18n-fr="Envoyer des mises à jour et rappels importants."
+                        >Send you important updates and reminders.</li>
                     </ul>
 
-                    <h2>Sharing of Information</h2>
-                    <p>
+                    <h2
+                        data-i18n="privacy.shareTitle"
+                        data-i18n-en="Sharing of Information"
+                        data-i18n-fr="Partage des informations"
+                    >Sharing of Information</h2>
+                    <p
+                        data-i18n="privacy.share:html"
+                        data-i18n-en="We do <strong>not</strong> sell or rent your personal information. Data is only shared with your consent, for example when you share your location with friends in the app."
+                        data-i18n-fr="Nous ne <strong>vendons</strong> ni ne <strong>louons</strong> tes informations personnelles. Les données ne sont partagées qu’avec ton consentement, par exemple lorsque tu partages ta localisation avec tes amis dans l’app."
+                    >
                         We do <strong>not</strong> sell or rent your personal information. Data is only shared with your consent, for example when you share your location with friends in the app.
                     </p>
 
-                    <h2>Data Security</h2>
-                    <p>
+                    <h2
+                        data-i18n="privacy.securityTitle"
+                        data-i18n-en="Data Security"
+                        data-i18n-fr="Sécurité des données"
+                    >Data Security</h2>
+                    <p
+                        data-i18n="privacy.security"
+                        data-i18n-en="We use industry-standard practices to protect your information. However, no method of transmission over the Internet is 100% secure."
+                        data-i18n-fr="Nous utilisons des pratiques standard de l’industrie pour protéger tes informations. Toutefois, aucun mode de transmission sur Internet n’est sécurisé à 100%."
+                    >
                         We use industry-standard practices to protect your information. However, no method of transmission over the Internet is 100% secure.
                     </p>
 
-                    <h2>Your Rights</h2>
-                    <p>
+                    <h2
+                        data-i18n="privacy.rightsTitle"
+                        data-i18n-en="Your Rights"
+                        data-i18n-fr="Tes droits"
+                    >Your Rights</h2>
+                    <p
+                        data-i18n="privacy.rights:html"
+                        data-i18n-en="You can request to access, update, or delete your data at any time by contacting us at <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>."
+                        data-i18n-fr="Tu peux demander l’accès, la mise à jour ou la suppression de tes données à tout moment en nous contactant à <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>."
+                    >
                         You can request to access, update, or delete your data at any time by contacting us at
                         <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a>.
                     </p>
 
-                    <h2>Changes to This Policy</h2>
-                    <p>
+                    <h2
+                        data-i18n="privacy.changesTitle"
+                        data-i18n-en="Changes to This Policy"
+                        data-i18n-fr="Modifications de cette politique"
+                    >Changes to This Policy</h2>
+                    <p
+                        data-i18n="privacy.changes"
+                        data-i18n-en="We may update this Privacy Policy from time to time. Updates will be posted on this page with a new effective date."
+                        data-i18n-fr="Nous pouvons mettre à jour cette politique de temps à autre. Les mises à jour seront publiées sur cette page avec une nouvelle date d’entrée en vigueur."
+                    >
                         We may update this Privacy Policy from time to time. Updates will be posted on this page with a new effective date.
                     </p>
 
-                    <h2>Contact Us</h2>
-                    <p>If you have questions or concerns, please contact us at:</p>
-                    <p><strong>Email:</strong> <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a></p>
+                    <h2
+                        data-i18n="privacy.contactTitle"
+                        data-i18n-en="Contact Us"
+                        data-i18n-fr="Nous contacter"
+                    >Contact Us</h2>
+                    <p
+                        data-i18n="privacy.contactIntro"
+                        data-i18n-en="If you have questions or concerns, please contact us at:"
+                        data-i18n-fr="Si tu as des questions ou des inquiétudes, tu peux nous contacter :"
+                    >If you have questions or concerns, please contact us at:</p>
+                    <p
+                        data-i18n="privacy.contactEmail:html"
+                        data-i18n-en="<strong>Email:</strong> <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>"
+                        data-i18n-fr="<strong>Email :</strong> <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>"
+                    ><strong>Email:</strong> <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a></p>
 
                     <div class="callout">
-                        Want to remove your account? See the “Delete account” page (if provided by your app distribution) or contact us at
-                        <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a>.
+                        <span
+                            data-i18n="privacy.callout:html"
+                            data-i18n-en="Want to remove your account? See the “Delete account” page (if provided by your app distribution) or contact us at <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>."
+                            data-i18n-fr="Tu veux supprimer ton compte ? Consulte la page « Supprimer le compte » (si disponible via ta distribution) ou contacte-nous à <a href=&quot;mailto:gymbrahapp@gmail.com&quot;>gymbrahapp@gmail.com</a>."
+                        >Want to remove your account? See the “Delete account” page (if provided by your app distribution) or contact us at
+                        <a href="mailto:gymbrahapp@gmail.com">gymbrahapp@gmail.com</a>.</span>
                     </div>
 
                     <div class="actions">
-                        <a class="btn btn-primary" href="index.html">Back to home</a>
-                        <a class="btn btn-secondary" href="support.html">Support</a>
+                        <a
+                            class="btn btn-primary"
+                            href="index.html"
+                            data-i18n="privacy.backHome"
+                            data-i18n-en="Back to home"
+                            data-i18n-fr="Retour à l’accueil"
+                        >Back to home</a>
+                        <a
+                            class="btn btn-secondary"
+                            href="support.html"
+                            data-i18n="privacy.support"
+                            data-i18n-en="Support"
+                            data-i18n-fr="Support"
+                        >Support</a>
+                        <a
+                            class="btn btn-secondary"
+                            href="child-safety-standards.html"
+                            data-i18n="privacy.childSafety"
+                            data-i18n-en="Child safety standards"
+                            data-i18n-fr="Normes de sécurité (mineurs)"
+                        >Child safety standards</a>
                     </div>
                 </div>
 
                 <footer class="legal-footer">
-                    <span>© 2025 Haroun Mili</span>
-                    <span>GoJim — Privacy Policy</span>
+                    <span data-i18n="privacy.footerLeft" data-i18n-en="© 2025 Haroun Mili" data-i18n-fr="© 2025 Haroun Mili">© 2025 Haroun Mili</span>
+                    <span data-i18n="privacy.footerRight" data-i18n-en="GoJim — Privacy Policy" data-i18n-fr="GoJim — Politique de confidentialité">GoJim — Privacy Policy</span>
                 </footer>
             </article>
         </div>
     </main>
 
     <script src="script.js"></script>
+    <script src="i18n.js"></script>
 </body>
 </html>
