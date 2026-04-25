@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's New | GoJim</title>
+    <meta name="description" content="Latest GoJim product updates and release notes.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="updates-page">
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">💪</span>
+                    <span class="logo-text">GoJim</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="index.html#download">Download</a>
+                    <a href="updates.html" class="active" aria-current="page">What's New</a>
+                    <a href="index.html#contact" class="cta-button">Get Started</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="updates-main">
+        <div class="container">
+            <header class="updates-header">
+                <p class="updates-eyebrow">Product updates</p>
+                <h1 class="updates-title">What's new in GoJim</h1>
+                <p class="updates-lead">Ship notes synced from our Notion database. Last updated: <span id="updatesLastSync">—</span></p>
+            </header>
+
+            <div class="updates-card">
+                <p class="updates-meta muted" id="updatesMeta">Loading…</p>
+                <div class="updates-table-wrap">
+                    <table class="updates-table">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Changes</th>
+                                <th>Time</th>
+                                <th>Version</th>
+                            </tr>
+                        </thead>
+                        <tbody id="updatesBody">
+                            <tr><td colspan="4" class="muted">No data yet.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="updates-footnote muted">Data comes from <code>updates.json</code> (refreshed daily via GitHub Actions).</p>
+            </div>
+
+            <p class="updates-back"><a href="index.html" class="btn btn-secondary">← Back to home</a></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p><a href="index.html">Home</a> · <a href="updates.html">What's New</a></p>
+                <p>&copy; 2024 GoJim. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function escapeHtml(str) {
+            return String(str)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;");
+        }
+
+        function renderRows(items) {
+            const body = document.getElementById("updatesBody");
+            if (!items.length) {
+                body.innerHTML = '<tr><td colspan="4" class="muted">No rows in updates.json yet. Run the Notion sync workflow or add rows in Notion.</td></tr>';
+                return;
+            }
+            body.innerHTML = items.map((item) => `
+                <tr>
+                    <td><span class="updates-pill">${escapeHtml(item.status || "—")}</span></td>
+                    <td>${escapeHtml(item.changes || "")}</td>
+                    <td>${escapeHtml(item.time || "")}</td>
+                    <td><span class="updates-version">${escapeHtml(item.version || "")}</span></td>
+                </tr>
+            `).join("");
+        }
+
+        async function loadUpdates() {
+            const meta = document.getElementById("updatesMeta");
+            const lastSync = document.getElementById("updatesLastSync");
+            try {
+                const response = await fetch("updates.json", { cache: "no-store" });
+                const payload = await response.json();
+                if (!response.ok) {
+                    throw new Error(payload.error || "Could not load updates.");
+                }
+                renderRows(payload.items || []);
+                const n = (payload.items || []).length;
+                meta.textContent = n ? `Showing ${n} update(s).` : "No updates in the feed.";
+                if (payload.generatedAt) {
+                    lastSync.textContent = new Date(payload.generatedAt).toLocaleString();
+                } else {
+                    lastSync.textContent = "not synced yet";
+                }
+            } catch (err) {
+                document.getElementById("updatesBody").innerHTML =
+                    `<tr><td colspan="4" class="muted">${escapeHtml(err.message)}</td></tr>`;
+                meta.textContent = "Could not load updates.json.";
+                lastSync.textContent = "—";
+            }
+        }
+
+        loadUpdates();
+    </script>
+</body>
+</html>

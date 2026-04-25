@@ -1,0 +1,13 @@
+{
+  "name": "gojim-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GoJim marketing site with optional Notion-synced changelog JSON.",
+  "scripts": {
+    "sync:notion": "node scripts/sync-notion-data.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.4.5"
+  }
+}
